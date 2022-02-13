@@ -8,6 +8,9 @@ public class BobApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(BobApplication.class, args);
+		Bob bob = new Bob();
+		bob.startBob();
+
 	}
 
 }
