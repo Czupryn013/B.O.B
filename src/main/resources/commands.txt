@@ -1,4 +1,10 @@
-open google
-close google
-open youtube
-close youtube
+Bob open chrome
+Bob close chrome
+Bob open youtube
+Bob close youtube
+Bob open steam
+Bob close steam
+Bob open discord
+Bob close discord
+Bob play music
+Bob introduce yourself

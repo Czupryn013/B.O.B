@@ -1,0 +1,81 @@
+Language model created by QuickLM on Sun Feb 13 11:50:33 EST 2022
+Copyright (c) 1996-2010 Carnegie Mellon University and Alexander I. Rudnicky
+
+The model is in standard ARPA format, designed by Doug Paul while he was at MITRE.
+
+The code that was used to produce this language model is available in Open Source.
+Please visit http://www.speech.cs.cmu.edu/tools/ for more information
+
+The (fixed) discount mass is 0.5. The backoffs are computed using the ratio method.
+This model based on a corpus of 10 sentences and 13 words
+
+\data\
+ngram 1=13
+ngram 2=21
+ngram 3=24
+
+\1-grams:
+-1.0000 </s> -0.3010
+-1.0000 <s> -0.2553
+-1.0000 BOB -0.2553
+-1.6990 CHROME -0.2553
+-1.3979 CLOSE -0.2648
+-1.6990 DISCORD -0.2553
+-2.0000 INTRODUCE -0.2967
+-2.0000 MUSIC -0.2553
+-1.3979 OPEN -0.2648
+-2.0000 PLAY -0.2967
+-1.6990 STEAM -0.2553
+-2.0000 YOURSELF -0.2553
+-1.6990 YOUTUBE -0.2553
+
+\2-grams:
+-0.3010 <s> BOB 0.0000
+-0.6990 BOB CLOSE 0.0000
+-1.3010 BOB INTRODUCE 0.0000
+-0.6990 BOB OPEN 0.0000
+-1.3010 BOB PLAY 0.0000
+-0.3010 CHROME </s> -0.3010
+-0.9031 CLOSE CHROME 0.0000
+-0.9031 CLOSE DISCORD 0.0000
+-0.9031 CLOSE STEAM 0.0000
+-0.9031 CLOSE YOUTUBE 0.0000
+-0.3010 DISCORD </s> -0.3010
+-0.3010 INTRODUCE YOURSELF 0.0000
+-0.3010 MUSIC </s> -0.3010
+-0.9031 OPEN CHROME 0.0000
+-0.9031 OPEN DISCORD 0.0000
+-0.9031 OPEN STEAM 0.0000
+-0.9031 OPEN YOUTUBE 0.0000
+-0.3010 PLAY MUSIC 0.0000
+-0.3010 STEAM </s> -0.3010
+-0.3010 YOURSELF </s> -0.3010
+-0.3010 YOUTUBE </s> -0.3010
+
+\3-grams:
+-0.6990 <s> BOB CLOSE
+-1.3010 <s> BOB INTRODUCE
+-0.6990 <s> BOB OPEN
+-1.3010 <s> BOB PLAY
+-0.9031 BOB CLOSE CHROME
+-0.9031 BOB CLOSE DISCORD
+-0.9031 BOB CLOSE STEAM
+-0.9031 BOB CLOSE YOUTUBE
+-0.3010 BOB INTRODUCE YOURSELF
+-0.9031 BOB OPEN CHROME
+-0.9031 BOB OPEN DISCORD
+-0.9031 BOB OPEN STEAM
+-0.9031 BOB OPEN YOUTUBE
+-0.3010 BOB PLAY MUSIC
+-0.3010 CLOSE CHROME </s>
+-0.3010 CLOSE DISCORD </s>
+-0.3010 CLOSE STEAM </s>
+-0.3010 CLOSE YOUTUBE </s>
+-0.3010 INTRODUCE YOURSELF </s>
+-0.3010 OPEN CHROME </s>
+-0.3010 OPEN DISCORD </s>
+-0.3010 OPEN STEAM </s>
+-0.3010 OPEN YOUTUBE </s>
+-0.3010 PLAY MUSIC </s>
+
+\end\
