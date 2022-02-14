@@ -1,0 +1,16 @@
+Bob open internet X
+Bob close internet X
+Bob open youtube X
+Bob close youtube X
+Bob open steam X
+Bob close steam X
+Bob open DC X
+Bob close DC X
+Bob play music X
+Bob play sabaton X
+Bob introduce yourself
+Bob say Bydgoszcz X
+Bob rick roll X
+Bob laugh X
+Bob enough X
+Bob no X

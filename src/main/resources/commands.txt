@@ -1,10 +1,19 @@
-Bob open chrome
-Bob close chrome
+Bob open internet
+Bob open new tab
+Bob close internet
+Bob close teams
 Bob open youtube
 Bob close youtube
 Bob open steam
 Bob close steam
-Bob open discord
-Bob close discord
+Bob open DC
+Bob close DC
 Bob play music
+Bob play sabaton
 Bob introduce yourself
+Bob say Bydgoszcz
+Bob prank
+Bob play laugh
+Bob play enough
+Bob play no
+Bob play super idol
