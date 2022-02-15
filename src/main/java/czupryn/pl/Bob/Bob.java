@@ -1,5 +1,8 @@
 package czupryn.pl.Bob;
 
+import czupryn.pl.Bob.modules.Apps;
+import czupryn.pl.Bob.modules.Jokes;
+import czupryn.pl.Bob.modules.Play;
 import edu.cmu.sphinx.api.Configuration;
 import edu.cmu.sphinx.api.LiveSpeechRecognizer;
 import edu.cmu.sphinx.api.SpeechResult;
@@ -15,6 +18,9 @@ public class Bob {
         config.setAcousticModelPath("resource:/edu/cmu/sphinx/models/en-us/en-us");
         config.setDictionaryPath("src/main/resources/9357.dic");
         config.setLanguageModelPath("src/main/resources/9357.lm");
+        Play play = new Play();
+        Apps apps = new Apps();
+        Jokes jokes = new Jokes();
 
         try {
             LiveSpeechRecognizer recognizer = new LiveSpeechRecognizer(config);
@@ -25,152 +31,80 @@ public class Bob {
                 String vCommand = speechResult.getHypothesis();
                 System.out.println(vCommand);
 
-                if (vCommand.equalsIgnoreCase("bob open youtube")) {
-                    bobOpenYT();
+                if (vCommand.equals("BOB OPEN YOUTUBE")) {
+                    apps.bobOpenYT();
                 }
-                else if (vCommand.equalsIgnoreCase("bob close youtube")) {
-                    bobCloseYT();
+                else if (vCommand.equals("BOB CLOSE YOUTUBE")) {
+                    apps.bobCloseYT();
                 }
-                else if (vCommand.equalsIgnoreCase("bob open internet")) {
-                    bobOpenInternet();
+                else if (vCommand.equals("BOB OPEN INTERNET") || vCommand.equals("OPEN INTERNET")) {
+                    apps.bobOpenInternet();
                 }
-                else if (vCommand.equalsIgnoreCase("bob open new tab")) {
-                    bobOpenNewTab();
+                else if (vCommand.equals("BOB OPEN NEW TAB") || vCommand.equals("OPEN NEW TAB")) {
+                    apps.bobOpenNewTab();
                 }
-                else if (vCommand.equalsIgnoreCase("bob close internet")) {
-                    bobCloseInternet();
+                else if (vCommand.equals("BOB CLOSE INTERNET")) {
+                    apps.bobCloseInternet();
                 }
-                else if (vCommand.equalsIgnoreCase("bob open steam")) {
-                    bobOpenSteam();
+                else if (vCommand.equals("BOB OPEN STEAM") || vCommand.equals("OPEN STEAM")) {
+                    apps.bobOpenSteam();
                 }
-                else if (vCommand.equalsIgnoreCase("bob close steam")) {
-                    bobCloseSteam();
+                else if (vCommand.equals("BOB CLOSE STEAM")) {
+                    apps.bobCloseSteam();
                 }
-                else if (vCommand.equalsIgnoreCase("bob open teams")) {
-                    bobOpenTeams();
+                else if (vCommand.equals("BOB OPEN TEAMS")) {
+                    apps.bobOpenTeams();
+                }
+                else if (vCommand.equals("BOB OPEN DC") || vCommand.equals("OPEN DC")) {
+                    apps.bobOpenDC();
+                }
+                else if (vCommand.equals("BOB CLOSE DC")) {
+                    apps.bobCloseDC();
                 }
                 else if (vCommand.equals("BOB PLAY MUSIC") || vCommand.equals("BOB OPEN MUSIC")) {
-                    Runtime.getRuntime().exec("cmd.exe /c start chrome www.youtube.com/" +
-                            "playlist?list=PLFfBRrg7B3ACrxzSqtEgRM4h115jHGmi4");
+                    play.bobPLayMusic();
                 }
                 else if (vCommand.equals("BOB PLAY SABATON") || vCommand.equals("BOB OPEN SABATON")) {
-                    Runtime.getRuntime().exec("cmd.exe /c start chrome www.youtube.com/" +
-                            "watch?v=FvHQ2UxwoEk&list=PLFfBRrg7B3ACrxzSqtEgRM4h115jHGmi4&index=7");
+                    play.bobPlaySabaton();
                 }
-                else if (vCommand.equalsIgnoreCase("bob open DC")) {
-                    Runtime.getRuntime().exec("cmd.exe /c start C:\\Users\\piotr\\" +
-                            "AppData\\Local\\Discord\\app-1.0.9003\\Discord.exe");
+                else if (vCommand.equals("BOB SAY BYDGOSZCZ") || vCommand.equals("SAY BYDGOSZCZ")) {
+                    play.bobBydgoszcz();
                 }
-                else if (vCommand.equalsIgnoreCase("bob close DC")) {
-                    Runtime.getRuntime().exec("cmd.exe /c TASKKILL /IM Discord.exe");
+                else if (vCommand.equals("BOB PRANK")) {
+                    play.bobRickRoll();
                 }
-                else if (vCommand.equalsIgnoreCase("bob say Bydgoszcz")) {
-                    Runtime.getRuntime().exec("cmd.exe /c start chrome www.youtube.com/channel/" +
-                            "UCN4gObcIL3MKzAoe6INB93Q");
+                else if (vCommand.equals("BOB PLAY LAUGH") || vCommand.equals("PLAY LAUGH")) {
+                    play.bobLaugh();
                 }
-                else if (vCommand.equalsIgnoreCase("bob prank")) {
-                    bobRickRoll();
+                else if (vCommand.equals("BOB PLAY NO") || vCommand.equals("PLAY NO")) {
+                    play.bobNo();
                 }
-                else if (vCommand.equalsIgnoreCase("bob play laugh")) {
-                    File file = new File("src/main/resources/voice/jp2_hehehe.wav");
-                    try {
-                        AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(file);
-                        Clip clip = AudioSystem.getClip();
-                        clip.open(audioInputStream);
-                        clip.start();
-                    } catch (UnsupportedAudioFileException | LineUnavailableException e) {
-                        e.printStackTrace();
-                    }
-
-                }
-                else if (vCommand.equalsIgnoreCase("bob play no")) {
-                    File file = new File("src/main/resources/voice/jp2_nie.wav");
-                    try {
-                        AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(file);
-                        Clip clip = AudioSystem.getClip();
-                        clip.open(audioInputStream);
-                        clip.start();
-                    } catch (UnsupportedAudioFileException | LineUnavailableException e) {
-                        e.printStackTrace();
-                    }
-
-                }
-                else if (vCommand.equalsIgnoreCase("bob play enough")) {
-                    File file = new File("src/main/resources/voice/jp2_dosc.wav");
-                    try {
-                        AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(file);
-                        Clip clip = AudioSystem.getClip();
-                        clip.open(audioInputStream);
-                        clip.start();
-                    } catch (UnsupportedAudioFileException | LineUnavailableException e) {
-                        e.printStackTrace();
-                    }
-
+                else if (vCommand.equals("BOB PLAY ENOUGH") || vCommand.equals("PLAY ENOUGH")) {
+                    play.bobEnough();
                 }
                 else if (vCommand.equals("BOB PLAY SUPER IDOL") || vCommand.equals("BOB OPEN SUPER IDOL")) {
-                    File file = new File("src/main/resources/voice/super_idol_.wav");
-                    try {
-                        AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(file);
-                        Clip clip = AudioSystem.getClip();
-                        clip.open(audioInputStream);
-                        clip.start();
-                    } catch (UnsupportedAudioFileException | LineUnavailableException e) {
-                        e.printStackTrace();
-                    }
-
+                    play.bobSingsSuperIdol();
                 }
-                else if (vCommand.equalsIgnoreCase("bob introduce yourself")) {
+                else if (vCommand.equals("BOB INTRODUCE YOURSELF") || vCommand.equals("BOB WHO ARE YOU") ||
+                        vCommand.equals("INTRODUCE YOURSELF") || vCommand.equals("WHO ARE YOU")) {
                         introductionOfBob();
                 }
+                else if (vCommand.equals("BOB OPEN RANDOM JOKE") || vCommand.equals("BOB PLAY RANDOM JOKE") ||
+                        vCommand.equals("PLAY RANDOM JOKE") || vCommand.equals("OPEN RANDOM JOKE") ||
+                        vCommand.equals("SAY RANDOM JOKE") || vCommand.equals("BOB SAY RANDOM JOKE")) {
+                    jokes.tellRandomJoke();
+                }
+                else if (vCommand.equals("BOB STOP") || vCommand.equals("STOP")) {
+                    System.exit(0);
+                }
             }
-
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
-
-    public void bobOpenYT() throws IOException {
-        Runtime.getRuntime().exec("cmd.exe /c start chrome www.youtube.com");
-    }
-    public void bobCloseYT() throws IOException {
-        Runtime.getRuntime().exec("cmd.exe /c TASKKILL /IM chrome.exe");
-    }
-    public void bobOpenInternet() throws IOException {
-        Runtime.getRuntime().exec("cmd.exe /c start chrome");
-    }
-    public void bobCloseInternet() throws IOException {
-        Runtime.getRuntime().exec("cmd.exe /c TASKKILL /IM chrome.exe");
-    }
-    public void bobOpenNewTab() throws IOException {
-        Runtime.getRuntime().exec("cmd.exe /c start chrome www.google.pl");
-    }
-    public void bobOpenSteam() throws IOException {
-        Runtime.getRuntime().exec("cmd.exe /c start steam://open/console");
-    }
-    public void bobCloseSteam() throws IOException {
-        Runtime.getRuntime().exec("cmd.exe /c TASKKILL /IM steam.exe");
-    }
-    public void bobOpenTeams() throws IOException {
-        Runtime.getRuntime().exec("cmd.exe /c start chrome teams.microsoft.com/_?culture=pl" +
-                "-pl&country=PL&lm=deeplink&lmsrc=homePageWeb&cmpid=WebSignIn#/calendarv2");
-    }
-
 
     public void introductionOfBob() {
         File file = new File("src/main/resources/voice/kim_jest_bob.wav");
-        try {
-            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(file);
-            Clip clip = AudioSystem.getClip();
-            clip.open(audioInputStream);
-            clip.start();
-        } catch (UnsupportedAudioFileException | LineUnavailableException | IOException e) {
-            e.printStackTrace();
-        }
-    }
-    public void bobRickRoll() throws IOException {
-        Runtime.getRuntime().exec("cmd.exe /c start chrome www.youtube.com/watch?v=iik25wqIuFo");
-        File file = new File("src/main/resources/voice/bob_rick_roll_haha.wav");
         try {
             AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(file);
             Clip clip = AudioSystem.getClip();

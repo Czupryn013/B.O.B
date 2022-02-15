@@ -11,9 +11,12 @@ Bob close DC
 Bob play music
 Bob play sabaton
 Bob introduce yourself
+Bob who are you
 Bob say Bydgoszcz
 Bob prank
 Bob play laugh
 Bob play enough
 Bob play no
 Bob play super idol
+Bob stop
+Bob open random joke
